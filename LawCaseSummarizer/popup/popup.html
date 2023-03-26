@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bulma.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>HKLII Summarizer</title>
+  </head>
+  <body>
+    <div class="container">
+      <span class="centered" id="chatGptLink" style="display: none"
+        >Please login to your ChatGPT account first <br />
+        <a href="https://chat.openai.com/chat" target="_blank"
+          >https://chat.openai.com/chat</a
+        >
+        <br /><br />
+        <span class="tag is-warning">Disconnected</span>
+      </span>
+
+      <span class="centered" id="configLink" style="display: none"
+        >Successfully connected to your ChatGPT account <br />
+        <a href="#" id="openOptionsPage" target="_blank"
+          >Click here to configure your API Access</a
+        ><br /><br />
+        <span class="tag is-success">Connected</span>
+      </span>
+    </div>
+  </body>
+
+  <script src="popup.js"></script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HKLII Summarizer Options</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../popup/bulma.min.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <h2 class="title">AI Provider</h2>
+      <div
+        style="border-radius: 10px; border: 1px solid lightgray; padding: 20px"
+      >
+        <input type="radio" name="provider" value="webapp" id="webapp" />
+        <label>ChatGPT Webapp</label>
+        <span id="chatGptLink" style="display: none"
+          >(Please login to your ChatGPT account first :
+          <a href="https://chat.openai.com" target="_blank"
+            >https://chat.openai.com</a
+          >)</span
+        >
+        <br />
+        <span class="info"
+          >Free ChatGPT Webapp API, but sometimes unstable</span
+        >
+        <br /><br />
+        <input type="radio" name="provider" value="api" id="api" />
+        <label>OpenAI API</label> : <br />
+        <span class="info"
+          >OpenAI official API, charge by usage but more stable</span
+        >
+        <br /><input
+          class="input"
+          type="password"
+          id="apiKey"
+          placeholder="Enter API Key Here"
+        />
+
+        <span class="info"
+          >You can create an API key
+          <a href="https://platform.openai.com/account/api-keys" target="_blank"
+            >here</a
+          ></span
+        >
+        <hr />
+        <button class="button is-info" id="save">Save</button>
+      </div>
+    </div>
+    <div
+      class="notification is-primary"
+      style="display: none"
+      id="page-notification"
+    >
+      <button class="delete" id="close-notification"></button>
+      <span id="notification-message"></span>
+    </div>
+    <script src="options.js"></script>
+  </body>
+</html>

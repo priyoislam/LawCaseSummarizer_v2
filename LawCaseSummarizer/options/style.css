@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.parent {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 550px;
+  max-width: 100%;
+}
+
+.info {
+  font-style: italic;
+  font-size: 14px;
+  color: rgb(135, 135, 135);
+}
+
+#apiKey {
+  margin-top: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#page-notification {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  margin-top: 15px;
+}

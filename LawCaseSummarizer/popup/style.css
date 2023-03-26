@@ -1,0 +1,28 @@
+.copy {
+  cursor: pointer;
+}
+
+html {
+  height: 450px;
+  width: 400px;
+  padding: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered {
+  text-align: center;
+}
