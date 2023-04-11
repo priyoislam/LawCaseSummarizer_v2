@@ -1,3 +1,95 @@
+const myDiv = document.querySelector('body');
+
+const paragraphs = myDiv.querySelectorAll('p');
+
+const headerParagraphStrings = [];
+const nonHeaderParagraphStrings = [];
+
+for (let i = 0; i < paragraphs.length; i++) {
+  if (paragraphs[i].classList.contains('headerxxx')) {
+    headerParagraphStrings.push(paragraphs[i].innerText);
+  } else {
+    nonHeaderParagraphStrings.push(paragraphs[i].innerText);
+  }
+}
+
+console.log(headerParagraphStrings);
+
+console.log(nonHeaderParagraphStrings);
+
+
+
+////////////////////////////
+
+
+// console.log('hello world xxxxxxxxxxxxxxxx');
+
+
+// const h1Tags = document.querySelectorAll('.heading');
+
+// // Loop through each h1 tag and log its text content to the console
+// h1Tags.forEach(h1 => {
+//   console.log(h1.textContent +  " xxxxxxxxxx");
+// });
+
+
+// another try        //////////////////////////////////////////////////////////////////
+
+
+// if (window.location.href === "https://www.hklii.hk/eng/") {
+
+//   // Select all h1 tags on the page
+//   const h1Tags = document.querySelectorAll('h1');
+
+//   // Loop through each h1 tag and log its text content to the console
+//   h1Tags.forEach(h1 => {
+//     console.log(h1.textContent);
+//   });
+  
+// }
+
+// // get all elements with class name "heading"
+// const headings = document.querySelectorAll('.heading');
+
+// // loop through all heading elements and send their content to the API
+// headings.forEach(heading => {
+//   const data = {
+//     text: heading.textContent
+//   };
+
+//   // api-url  with the URL of your API endpoint
+//   fetch('<api-url>', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data)
+//   })
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(responseJson => {
+//     console.log(responseJson); // log the response from the API
+//   })
+//   .catch(error => {
+//     console.error('There was a problem with the fetch operation:', error);
+//   });
+// });
+
+
+
+
+//// /////////////////////////////////////////////////////
+
+
+
+
+
+
+
 const ENDPOINT = 'https://api.openai.com/v1/chat/completions';
 const CHATGPT_WEBSITE = 'https://chat.openai.com/chat';
 const CHATGPT_TOKEN_ENDPOINT = 'https://chat.openai.com/api/auth/session';
@@ -76,6 +168,7 @@ function main() {
       .getElementsByTagName('td')[0];
 
     const summaryTitle = document.createElement('h2');
+    
     summaryTitle.innerHTML = `${SUMMARY_TITLE} <i id="copyBtn" title="Copy summary" class="fa fa-copy" style="display=none; cursor: pointer; font-size: 19px; font-weight: bold; margin-left: 8px"></i> <i title="Extension options" id="openOptionsConfig" class="fa fa-cog" style="float: right; margin-left: 9px; cursor: pointer;"></i> <i title="Regenerate summary" id="restartSummary"class="fa fa-rotate-right" style="float: right; cursor: pointer;"></i>`;
 
     const summary = document.createElement('p');
@@ -491,5 +584,15 @@ function main() {
       copyNotification.style.borderRadius = '15px';
       copyNotification.style.visibility = 'hidden';
     }
+
+    
   }
 }
+
+
+
+
+
+
+
+

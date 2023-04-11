@@ -7,3 +7,6 @@ chrome.runtime.onInstalled.addListener((details) => {
     chrome.runtime.openOptionsPage();
   }
 });
+
+// cross oregi wild js 
+
