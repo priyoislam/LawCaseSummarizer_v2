@@ -6,7 +6,7 @@ const headerParagraphStrings = [];
 const nonHeaderParagraphStrings = [];
 
 for (let i = 0; i < paragraphs.length; i++) {
-  if (paragraphs[i].classList.contains('headerxxx')) {
+  if (paragraphs[i].classList.contains('heading')) {
     headerParagraphStrings.push(paragraphs[i].innerText);
   } else {
     nonHeaderParagraphStrings.push(paragraphs[i].innerText);
@@ -15,14 +15,14 @@ for (let i = 0; i < paragraphs.length; i++) {
 
 console.log(headerParagraphStrings);
 
-console.log(nonHeaderParagraphStrings);
+// console.log(nonHeaderParagraphStrings);
 
 
 
 ////////////////////////////
 
 
-// console.log('hello world xxxxxxxxxxxxxxxx');
+console.log('hello world xxxxxxxxxxxxxxxx');
 
 
 // const h1Tags = document.querySelectorAll('.heading');
