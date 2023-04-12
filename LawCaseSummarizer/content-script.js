@@ -1,19 +1,45 @@
-const myDiv = document.querySelector('body');
+/////////////////////////////////////////////
 
-const paragraphs = myDiv.querySelectorAll('p');
+const headings = document.querySelectorAll('p.heading');
+const texts = [];
 
-const headerParagraphStrings = [];
-const nonHeaderParagraphStrings = [];
+for (let i = 0; i < headings.length; i++) {
+  const heading = headings[i];
+  const nextParagraphs = [];
+  let current = heading.nextElementSibling;
 
-for (let i = 0; i < paragraphs.length; i++) {
-  if (paragraphs[i].classList.contains('heading')) {
-    headerParagraphStrings.push(paragraphs[i].innerText);
-  } else {
-    nonHeaderParagraphStrings.push(paragraphs[i].innerText);
+  while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
+    nextParagraphs.push(current.textContent);
+    current = current.nextElementSibling;
   }
+
+  texts[i] = nextParagraphs.join('\n');
 }
 
-console.log(headerParagraphStrings);
+console.log(texts);
+
+
+
+
+
+/////////////////////////////////////////////
+
+// const myDiv = document.querySelector('body');
+
+// const paragraphs = myDiv.querySelectorAll('p');
+
+// const headerParagraphStrings = [];
+// const nonHeaderParagraphStrings = [];
+
+// for (let i = 0; i < paragraphs.length; i++) {
+//   if (paragraphs[i].classList.contains('heading')) {
+//     headerParagraphStrings.push(paragraphs[i].innerText);
+//   } else {
+//     nonHeaderParagraphStrings.push(paragraphs[i].innerText);
+//   }
+// }
+
+// console.log(headerParagraphStrings);
 
 // console.log(nonHeaderParagraphStrings);
 
@@ -22,7 +48,7 @@ console.log(headerParagraphStrings);
 ////////////////////////////
 
 
-console.log('hello world xxxxxxxxxxxxxxxx');
+console.log('hello world ');
 
 
 // const h1Tags = document.querySelectorAll('.heading');
