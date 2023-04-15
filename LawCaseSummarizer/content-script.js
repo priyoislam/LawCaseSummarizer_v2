@@ -1,4 +1,44 @@
-/////////////////////////////////////////////
+
+
+{////////////////////////////////////////////////////////////////////////
+// const headings = document.querySelectorAll('p.heading');
+// const texts = [];
+
+// for (let i = 0; i < headings.length; i++) {
+//   const heading = headings[i];
+//   const nextParagraphs = [];
+//   let current = heading.nextElementSibling;
+
+//   while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
+//     nextParagraphs.push(current.textContent);
+//     current = current.nextElementSibling;
+//   }
+
+//   texts[i] = nextParagraphs.join('\n');
+// }
+
+// console.log(texts);
+
+// const API_URL = 'https://example.com/api';
+// const payload = {
+//   texts: texts
+// };
+
+// fetch(API_URL, {
+//   method: 'POST',
+//   body: JSON.stringify(payload),
+//   headers: {
+//     'Content-Type': 'application/json'
+//   }
+// })
+//   .then(response => response.json())
+//   .then(data => console.log(data))
+//   .catch(error => console.error(error));}
+
+
+// //////////////////////////////////////////////////////////////////////////
+
+// this is for every text content after every p tag contain classname heading / 
 
 const headings = document.querySelectorAll('p.heading');
 const texts = [];
@@ -8,7 +48,7 @@ for (let i = 0; i < headings.length; i++) {
   const nextParagraphs = [];
   let current = heading.nextElementSibling;
 
-  while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
+  while (current && !current.classList.contains('heading')) {
     nextParagraphs.push(current.textContent);
     current = current.nextElementSibling;
   }
@@ -20,95 +60,28 @@ console.log(texts);
 
 
 
-
-
 /////////////////////////////////////////////
+// this is for only p tag  text content after every p tag that  contain classname heading / 
 
-// const myDiv = document.querySelector('body');
+// const headings = document.querySelectorAll('p.heading');
+// const texts = [];
 
-// const paragraphs = myDiv.querySelectorAll('p');
+// for (let i = 0; i < headings.length; i++) {
+//   const heading = headings[i];
+//   const nextParagraphs = [];
+//   let current = heading.nextElementSibling;
 
-// const headerParagraphStrings = [];
-// const nonHeaderParagraphStrings = [];
-
-// for (let i = 0; i < paragraphs.length; i++) {
-//   if (paragraphs[i].classList.contains('heading')) {
-//     headerParagraphStrings.push(paragraphs[i].innerText);
-//   } else {
-//     nonHeaderParagraphStrings.push(paragraphs[i].innerText);
+//   while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
+//     nextParagraphs.push(current.textContent);
+//     current = current.nextElementSibling;
 //   }
+
+//   texts[i] = nextParagraphs.join('\n');
 // }
 
-// console.log(headerParagraphStrings);
+// console.log(texts);
 
-// console.log(nonHeaderParagraphStrings);
-
-
-
-////////////////////////////
-
-
-console.log('hello world ');
-
-
-// const h1Tags = document.querySelectorAll('.heading');
-
-// // Loop through each h1 tag and log its text content to the console
-// h1Tags.forEach(h1 => {
-//   console.log(h1.textContent +  " xxxxxxxxxx");
-// });
-
-
-// another try        //////////////////////////////////////////////////////////////////
-
-
-// if (window.location.href === "https://www.hklii.hk/eng/") {
-
-//   // Select all h1 tags on the page
-//   const h1Tags = document.querySelectorAll('h1');
-
-//   // Loop through each h1 tag and log its text content to the console
-//   h1Tags.forEach(h1 => {
-//     console.log(h1.textContent);
-//   });
-  
-// }
-
-// // get all elements with class name "heading"
-// const headings = document.querySelectorAll('.heading');
-
-// // loop through all heading elements and send their content to the API
-// headings.forEach(heading => {
-//   const data = {
-//     text: heading.textContent
-//   };
-
-//   // api-url  with the URL of your API endpoint
-//   fetch('<api-url>', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(data)
-//   })
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     return response.json();
-//   })
-//   .then(responseJson => {
-//     console.log(responseJson); // log the response from the API
-//   })
-//   .catch(error => {
-//     console.error('There was a problem with the fetch operation:', error);
-//   });
-// });
-
-
-
-
-//// /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 
 
 
