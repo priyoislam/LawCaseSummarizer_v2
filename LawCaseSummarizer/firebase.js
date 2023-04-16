@@ -1,10 +1,4 @@
 // Import the Firebase SDK
-// import firebase from '/node_modules/firebase/app';
-
-// import 'firebase/auth';
-
-
-
 // Get login button and add event listener
 const loginBtn = document.getElementById('loginBtn');
 loginBtn.addEventListener('click', signIn);
@@ -19,7 +13,6 @@ const password = document.getElementById('password');
 
 // Initialize Firebase
 const firebaseConfig = {
-  // Add your Firebase config here
   apiKey: "AIzaSyCfSAygglteH5k5ur1UxQlQ__Vj4eGl7SU",
   authDomain: "hklii-bcd8f.firebaseapp.com",
   projectId: "hklii-bcd8f",
@@ -31,8 +24,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 // firebase.auth().useEmulator('https://localhost');
 
-// Now you can access the Firebase SDK anywhere in your extension's code
-// For example:
+
 const auth = firebase.auth();
 
 
@@ -56,7 +48,8 @@ function signIn() {
 function signInWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(result=>{
-        console.log(result,"xxxxxx");
+        return false;
+        console.log(result);
         
     })
     // console.log(firebase,provider);
