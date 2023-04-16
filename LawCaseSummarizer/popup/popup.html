@@ -1,33 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="bulma.min.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>HKLII Summarizer</title>
-  </head>
-  <body>
-    <div class="container">
-      <span class="centered" id="chatGptLink" style="display: none"
-        >Please login to your ChatGPT account first <br />
-        <a href="https://chat.openai.com/chat" target="_blank"
-          >https://chat.openai.com/chat</a
-        >
-        <br /><br />
-        <span class="tag is-warning">Disconnected</span>
-      </span>
 
-      <span class="centered" id="configLink" style="display: none"
-        >Successfully connected to your ChatGPT account <br />
-        <a href="#" id="openOptionsPage" target="_blank"
-          >Click here to configure your API Access</a
-        ><br /><br />
-        <span class="tag is-success">Connected</span>
-      </span>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="bulma.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+  
+  <title>HKLII Summarizer</title>
+</head>
 
-  <script src="popup.js"></script>
+<body class="d-flex flex-column">
+  <div class="container">
+    <span class="centered" id="chatGptLink" style="display: none">Please login to your ChatGPT account first <br />
+      <a href="https://chat.openai.com/chat" target="_blank">https://chat.openai.com/chat</a>
+      <br /><br />
+      <span class="tag is-warning">Disconnected</span>
+    </span>
+
+    <span class="centered" id="configLink" style="display: none">Successfully connected to your ChatGPT account <br />
+      <a href="#" id="openOptionsPage" target="_blank">Click here to configure your API Access</a><br /><br />
+      <span class="tag is-success">Connected</span>
+    </span>
+  </div>
+
+  <div class="login-box bg-dark text-white p-4">
+    <h2 class="text-center mb-4">Login</h2>
+    <form>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-envelope"></i>
+          </span>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="bi bi-lock"></i>
+          </span>
+          <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+      </div>
+      <button class="btn btn-outline-light" type="button" id="loginBtn">Login</button>
+      <button class="btn btn-outline-light" type="button" id="googleSignInBtn">
+        <i class="bi bi-google me-2"></i>
+        Sign in with Google
+      </button>
+      
+    </form>
+  </div>
+
+
+</body>
+
+<script src="popup.js"></script>
+<!-- fireBase -->
+<script src="../firebase-app.js"></script>
+<script src="../firebase-auth.js"></script>
+<script src="../firebase.js"></script>
+
+<!-- fireBase -->
+
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+
 </html>

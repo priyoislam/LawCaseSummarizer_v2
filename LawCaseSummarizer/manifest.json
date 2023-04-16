@@ -16,6 +16,7 @@
     "service_worker": "background.js",
     "type": "module"
   },
+  
   "options_page": "options/options.html",
   "content_scripts": [
     {
@@ -23,6 +24,7 @@
       "js": ["content-script.js"]
     }
   ],
+
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
     "storage",
@@ -31,5 +33,12 @@
     "activeTab",
     "cookies",
     "webRequest"
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://apis.google.com; object-src 'self'",
+    "sandbox": "allow-scripts"
+  }
+   
 }
+  
+
