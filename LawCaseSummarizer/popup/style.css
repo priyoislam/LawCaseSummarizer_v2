@@ -25,4 +25,12 @@ body {
 
 .centered {
   text-align: center;
+}
+
+.loginAndsignuppage {
+  width: 10rem;
+  height: 10rem;
+}
+.loginAndsignuppage h1 {
+  color: red;
 }/*# sourceMappingURL=style.css.map */

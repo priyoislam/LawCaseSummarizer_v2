@@ -25,8 +25,8 @@
       <span class="tag is-success">Connected</span>
     </span>
   </div>
-
-  <div class="login-box bg-dark text-white p-4">
+<!-- /////////////////////////// -->
+  <!-- <div class="login-box bg-dark text-white p-4">
     <h2 class="text-center mb-4">Login</h2>
     <form>
       <div class="mb-3">
@@ -54,10 +54,179 @@
       </button>
       
     </form>
+  </div> -->
+
+  <!-- ////////////////////// -->
+
+  <!-- <div class="login-box bg-dark text-white p-4">
+    <div class="tabs">
+      <ul>
+        <li class="is-active" id="loginTab"><a>Login</a></li>
+        <li id="registerTab"><a>Register</a></li>
+      </ul>
+    </div>
+    <div class="tab-content" id="loginTabContent">
+      <h2 class="text-center mb-4">Login</h2>
+      <form>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-envelope"></i>
+            </span>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" id="password" name="password" class="form-control" required>
+          </div>
+        </div>
+        <button class="btn btn-outline-light" type="button" id="loginBtn">Login</button>
+        <button class="btn btn-outline-light" type="button" id="googleSignInBtn">
+          <i class="bi bi-google me-2"></i>
+          Sign in with Google
+        </button>
+      </form>
+    </div>
+    <div class="tab-content" id="registerTabContent" style="display: none;">
+      <h2 class="text-center mb-4">Register</h2>
+      <form>
+        <div class="mb-3">
+          <label for="registerEmail" class="form-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-envelope"></i>
+            </span>
+            <input type="email" id="registerEmail" name="registerEmail" class="form-control" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="registerPassword" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" id="registerPassword" name="registerPassword" class="form-control" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="bi bi-lock"></i>
+            </span>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+          </div>
+        </div>
+        <button class="btn btn-outline-light" type="button" id="registerBtn">Register</button>
+      </form>
+    </div>
+  </div> -->
+  
+
+
+<!-- 
+  try day three 
+  <div class="loginAndsignuppage">
+
+    <h1><a href="../LogSign/login.html">login</a></h1>
+    <h1><a href="../LogSign/signup.html">signup</a></h1>
+
+  </div> -->
+
+ 
+
+  <!-- try day three  -->
+
+<section>
+  <!-- <div class="container">
+    <h1>Login Page</h1>
+    <div id="error-message"></div>
+    <div id="login-section">
+      <form id="login-form" class="form">
+        <input type="email" placeholder="Email" id="email" required>
+        <input type="password" placeholder="Password" id="password" required>
+        <button type="submit">Login</button>
+      </form>
+      <hr>
+      <button id="google-login-button">Login with Google</button>
+      <button id="signup-button">Sign Up</button>
+    </div>
+    <div id="signup-section" style="display:none;">
+      <form id="signup-form" class="form">
+        <input type="email" placeholder="Email" id="signup-email" required>
+        <input type="password" placeholder="Password" id="signup-password" required>
+        <input type="password" placeholder="Confirm Password" id="confirm-password" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <hr>
+      <button id="login-button">Login</button>
+    </div>
+  </div> -->
+</section>
+  
+<section>
+  <!DOCTYPE html>
+<html>
+  <head>
+    <title>Login/Signup Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Login</h1>
+          <form id="login-form" class="form">
+            <div class="mb-3">
+              <label for="login-email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="login-email" required>
+            </div>
+            <div class="mb-3">
+              <label for="login-password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="login-password" required>
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+            <button id="login-with-google-btn" class="btn btn-outline-success">Login with Google</button>
+          </form>
+        </div>
+        <div class="col">
+          <h1>Signup</h1>
+          <form id="signup-form" class="form" style="display: none;">
+            <div class="mb-3">
+              <label for="signup-email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="signup-email" required>
+            </div>
+            <div class="mb-3">
+              <label for="signup-password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="signup-password" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirm-password" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirm-password" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Signup</button>
+          </form>
+          <button id="toggle-signup-btn" class="btn btn-outline-danger mt-3">Don't have an account? Signup here.</button>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.0.2/firebase-app.min.js" integrity="sha512-+0/HQKjR8CZ+jJrgksH0p/NGK/XUP8eq1W3nY15oE0C2lDQwdSEhPTJtd+xz+CUznvxKb1EZWJ5pZZohwWS5Hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.0.2/firebase-auth.min.js" integrity="sha512-Jb4FXH4x4ONR+ahyjK0YUdSM6UJ1sXIOaZ0qK3UbN0Vx99G17BqY3JbzOeGbo2Qb0l41mksvzX9RcBmC+qupFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+
+</section>
   </div>
 
-
 </body>
+
+
 
 <script src="popup.js"></script>
 <!-- fireBase -->

@@ -16,3 +16,20 @@ let openOptionsPage = document.getElementById('openOptionsPage');
 openOptionsPage.addEventListener('click', () => {
   chrome.runtime.sendMessage('showOptions');
 });
+////////////////////////////
+
+const loginSection = document.getElementById("login-section");
+const signupSection = document.getElementById("signup-section");
+const signupButton = document.getElementById("signup-button");
+const loginButton = document.getElementById("login-button");
+
+signupButton.addEventListener("click", () => {
+  loginSection.style.display = "none";
+  signupSection.style.display = "block";
+});
+
+loginButton.addEventListener("click", () => {
+  signupSection.style.display = "none";
+  loginSection.style.display = "block";
+});
+

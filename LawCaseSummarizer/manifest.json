@@ -13,7 +13,7 @@
     "128": "images/icon-128.png"
   },
   "background": {
-    "service_worker": "background.js",
+    "service_worker":"background.js" ,
     "type": "module"
   },
   
@@ -25,15 +25,26 @@
     }
   ],
 
+
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
+    "identity",
     "storage",
     "tabs",
     "scripting",
     "activeTab",
     "cookies",
     "webRequest"
-  ]
+    
+  ],
+  "oauth2": {
+    "client_id": "1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  }
+  
   
   }
   
