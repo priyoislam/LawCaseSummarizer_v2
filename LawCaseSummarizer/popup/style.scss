@@ -35,5 +35,13 @@
     }
   }
 
+
+  #signup-form {
+    width: 75vw; /* set the height of the element to the full height of the viewport */
+    display: flex; /* use flexbox to center the form vertically and horizontally */
+    justify-content: center; /* center the form horizontally */
+    align-items: center; /* center the form vertically */
+  }
+
  
   
