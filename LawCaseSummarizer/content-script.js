@@ -1,39 +1,20 @@
+importScripts('firebase-app.js');
+importScripts('firebase-auth.js');
 
+// Your Firebase authentication code goes here
 
-////////////////////////////////////////////////////////////////////////
-// const headings = document.querySelectorAll('p.heading');
-// const texts = [];
+const firebaseConfig = {
+  apiKey: "AIzaSyAy1cQNmS7ODhE1RpEDY-fMQsCJlff2QOQ",
+  authDomain: "kennetp-28dbc.firebaseapp.com",
+  projectId: "kennetp-28dbc",
+  storageBucket: "kennetp-28dbc.appspot.com",
+  messagingSenderId: "470579643823",
+  appId: "1:470579643823:web:f16b4a343b2b2ee2039b5a"
+};
 
-// for (let i = 0; i < headings.length; i++) {
-//   const heading = headings[i];
-//   const nextParagraphs = [];
-//   let current = heading.nextElementSibling;
+ // Initialize Firebase
+ const app = initializeApp(firebaseConfig);
 
-//   while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
-//     nextParagraphs.push(current.textContent);
-//     current = current.nextElementSibling;
-//   }
-
-//   texts[i] = nextParagraphs.join('\n');
-// }
-
-// console.log(texts);
-
-// const API_URL = 'https://example.com/api';
-// const payload = {
-//   texts: texts
-// };
-
-// fetch(API_URL, {
-//   method: 'POST',
-//   body: JSON.stringify(payload),
-//   headers: {
-//     'Content-Type': 'application/json'
-//   }
-// })
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error));}
 
 
 // //////////////////////////////////////////////////////////////////////////

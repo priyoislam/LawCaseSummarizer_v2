@@ -83,5 +83,20 @@ backToLoginBtn.addEventListener("click", () => {
 
 
 
+// To check if the user is logged in
+
+chrome.storage.local.get('user', result => {
+  const user = result.user;
+  if (user) {
+    // user is logged in
+   
+    
+  } else {
+    // user is not logged in
+  }
+});
+
+
+
 
 

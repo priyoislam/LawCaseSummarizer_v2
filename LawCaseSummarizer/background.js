@@ -9,31 +9,66 @@ chrome.runtime.onInstalled.addListener((details) => {
 });
 
 try {
-  // you need to manually have firebase-compat.js file in your dir
-self.importScripts('firebase.js');
+  // Initialize Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAy1cQNmS7ODhE1RpEDY-fMQsCJlff2QOQ",
+    authDomain: "kennetp-28dbc.firebaseapp.com",
+    projectId: "kennetp-28dbc",
+    storageBucket: "kennetp-28dbc.appspot.com",
+    messagingSenderId: "470579643823",
+    appId: "1:470579643823:web:f16b4a343b2b2ee2039b5a"
+  };
+firebase.initializeApp(firebaseConfig);
 
-const config = {
-  apiKey: "AIzaSyCfSAygglteH5k5ur1UxQlQ__Vj4eGl7SU",
-  authDomain: "hklii-bcd8f.firebaseapp.com",
-  projectId: "hklii-bcd8f",
-  storageBucket: "hklii-bcd8f.appspot.com",
-  messagingSenderId: "999175109178",
-  appId: "1:999175109178:web:abb1a20160952f115b5303",
-  measurementId: "G-CPHKW7S17M"
-};
-firebase.initializeApp(config);
+const form = document.querySelector('#login-form');
 
-var db = firebase.firestore();
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = form.querySelector('#login-email').value;
+  const password = form.querySelector('#login-password').value;
 
-chrome.runtime.onMessage.addListener(function (request, sender) {
-  if (request.command === "post") {
-          // in here, you can use both firebase and data from popup view
-    console.log(request.data);
-          return true;
-  }
+  firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(() => {
+      // Login successful, close the popup
+      window.close();
+    })
+    .catch((error) => {
+      // An error occurred, show the error message
+      alert(error.message);
+    });
 });
+
+const toggleSignupBtn = document.querySelector('#toggle-signup-btn');
+const signupForm = document.querySelector('#signup-form');
+
+toggleSignupBtn.addEventListener('click', () => {
+  form.style.display = 'none';
+  toggleSignupBtn.style.display = 'none';
+  signupForm.style.display = 'block';
+});
+
+signupForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = signupForm.querySelector('#signup-email').value;
+  const password = signupForm.querySelector('#signup-password').value;
+  const confirmPassword = signupForm.querySelector('#confirm-password').value;
+
+  if (password !== confirmPassword) {
+    alert('Passwords do not match');
+    return;
+  }
+
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      // Signup successful, close the popup
+      window.close();
+    })
+    .catch((error) => {
+      // An error occurred, show the error message
+      alert(error.message);
+    });
+});
+
 } catch (e) {
-console.error(e);}
-
-// cross oregi wild js 
-
+  console.error(e);
+}

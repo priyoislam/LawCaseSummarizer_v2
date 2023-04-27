@@ -13,10 +13,9 @@
     "128": "images/icon-128.png"
   },
   "background": {
-    "service_worker":"background.js" ,
+    "service_worker": "background.js",
     "type": "module"
   },
-  
   "options_page": "options/options.html",
   "content_scripts": [
     {
@@ -24,8 +23,6 @@
       "js": ["content-script.js"]
     }
   ],
-
-
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
     "identity",
@@ -34,18 +31,14 @@
     "scripting",
     "activeTab",
     "cookies",
-    "webRequest"
-    
+    "webRequest",
+    "https://www.googleapis.com/auth/userinfo.email",
+    "https://www.googleapis.com/auth/firebase.database"
   ],
-  "oauth2": {
-    "client_id": "1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com",
-    "scopes": [
-      "https://www.googleapis.com/auth/userinfo.email",
-      "https://www.googleapis.com/auth/userinfo.profile"
-    ]
-  }
-  
-  
-  }
-  
-
+  "web_accessible_resources": [
+    {
+      "resources": ["firebase-app.js", "firebase-auth.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
