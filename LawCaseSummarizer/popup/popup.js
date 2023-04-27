@@ -81,6 +81,16 @@ backToLoginBtn.addEventListener("click", () => {
   signupForm.style.display = "none";
 });
 
+chrome.runtime.sendMessage({ action: 'getUserData' }, function(response) {
+  console.log('User data:', response);
+});
+
+
+//////////////////firebase 
+const loginWithEmailBtn = document.getElementById('login-button');
+const loginWithGoogleBtn = document.getElementById('login-with-google-btn');
+const signupBtn = document.getElementById('signup-button');
+
 
 
 

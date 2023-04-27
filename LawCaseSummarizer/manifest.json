@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "HKLII Summarizer",
+  "name": "HKLII Summarizer x",
   "description": "Summarize Law Cases in the website : https://hklii.hk",
   "version": "1.0",
   "action": {
@@ -28,7 +28,6 @@
 
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
-    "identity",
     "storage",
     "tabs",
     "scripting",
@@ -36,14 +35,7 @@
     "cookies",
     "webRequest"
     
-  ],
-  "oauth2": {
-    "client_id": "1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com",
-    "scopes": [
-      "https://www.googleapis.com/auth/userinfo.email",
-      "https://www.googleapis.com/auth/userinfo.profile"
-    ]
-  }
+  ]
   
   
   }
