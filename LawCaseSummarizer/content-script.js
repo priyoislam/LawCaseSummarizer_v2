@@ -1,7 +1,7 @@
 
-chrome.runtime.sendMessage("hello this is from content Script ", (response) => {
-  console.log(response);
-});
+// chrome.runtime.sendMessage("hello this is from content Script ", (response) => {
+//   console.log(response);
+// });
 
 
 

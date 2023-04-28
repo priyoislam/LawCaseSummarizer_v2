@@ -42,6 +42,10 @@ loginForm.addEventListener("submit", (event) => {
 
   // Do something with the email and password values, such as sending them to a server for authentication
   console.log(`Logging in with email: ${email} and password: ${password}`);
+
+
+
+
 });
 
 // Handle form submission for signup form
@@ -53,7 +57,36 @@ signupForm.addEventListener("submit", (event) => {
   const password = document.getElementById("signup-password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
 
+
   // Do something with the email, password, and confirm password values, such as sending them to a server for creating a new user account
+
+////////////////////
+
+async function checkPasswords() {
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  let FinalPassword;
+  
+  if (password === confirmPassword) {
+    FinalPassword = password;
+  } else {
+    console.log("Passwords do not match");
+    // or show an error message to the user
+    return; // exit the function early if passwords do not match
+  }
+  
+  // send message to background.js with email and FinalPassword
+  chrome.runtime.sendMessage({type: 'my-message', data: [email, FinalPassword]}, function(response) {
+    console.log('Response received:', response);
+  });
+}
+
+checkPasswords();
+
+
+  ///////////////////
+
   console.log(`Signing up with email: ${email} and password: ${password}`);
 
   // Clear the input fields
@@ -78,6 +111,10 @@ toggleSignupBtn.addEventListener("click", () => {
     toggleSignupBtn.textContent = "Already have an account? Login here."; // Change the button text to indicate that the user can go back to the login page
   }
 });
+
+
+
+
 
 
 
