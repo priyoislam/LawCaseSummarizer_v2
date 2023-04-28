@@ -1,3 +1,8 @@
+
+
+const loginWithEmailBtn = document.getElementById('login-button');
+const loginWithGoogleBtn = document.getElementById('login-with-google-btn');
+const signupBtn = document.getElementById('signup-button');
 const chatGptLink = document.getElementById('chatGptLink');
 const configLink = document.getElementById('configLink');
 
@@ -75,21 +80,8 @@ toggleSignupBtn.addEventListener("click", () => {
 });
 
 
-// Handle back button click to go back to login form
-backToLoginBtn.addEventListener("click", () => {
-  loginForm.style.display = "block";
-  signupForm.style.display = "none";
-});
-
-chrome.runtime.sendMessage({ action: 'getUserData' }, function(response) {
-  console.log('User data:', response);
-});
 
 
-//////////////////firebase 
-const loginWithEmailBtn = document.getElementById('login-button');
-const loginWithGoogleBtn = document.getElementById('login-with-google-btn');
-const signupBtn = document.getElementById('signup-button');
 
 
 

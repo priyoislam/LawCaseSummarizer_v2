@@ -1,4 +1,14 @@
 
+chrome.runtime.sendMessage("hello this is from content Script ", (response) => {
+  console.log(response);
+});
+
+
+
+// // content-script.js
+// const myElement = document.querySelector('p')
+// console.log(myElement.innerText);
+
 
 ////////////////////////////////////////////////////////////////////////
 // const headings = document.querySelectorAll('p.heading');
@@ -42,6 +52,7 @@
 
 const headings = document.querySelectorAll('p.heading');
 const texts = [];
+const data ={};
 
 for (let i = 0; i < headings.length; i++) {
   const heading = headings[i];
@@ -54,9 +65,30 @@ for (let i = 0; i < headings.length; i++) {
   }
 
   texts[i] = nextParagraphs.join('\n');
+  data[heading.textContent] = nextParagraphs.join('\n');
+  
 }
 
 console.log(texts);
+console.log(JSON.stringify(data));
+
+fetch('https://example.com/api/endpoint', {
+  // insert You API here , in line num ber 88
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => {
+  console.log(response);
+  
+})
+.catch(error => {
+  console.log(error);
+  
+});
+
 
 
 
