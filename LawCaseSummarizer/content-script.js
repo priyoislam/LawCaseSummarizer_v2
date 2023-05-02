@@ -1,52 +1,4 @@
 
-// chrome.runtime.sendMessage("hello this is from content Script ", (response) => {
-//   console.log(response);
-// });
-
-
-
-// // content-script.js
-// const myElement = document.querySelector('p')
-// console.log(myElement.innerText);
-
-
-////////////////////////////////////////////////////////////////////////
-// const headings = document.querySelectorAll('p.heading');
-// const texts = [];
-
-// for (let i = 0; i < headings.length; i++) {
-//   const heading = headings[i];
-//   const nextParagraphs = [];
-//   let current = heading.nextElementSibling;
-
-//   while (current && !current.classList.contains('heading') && current.tagName.toLowerCase() === 'p') {
-//     nextParagraphs.push(current.textContent);
-//     current = current.nextElementSibling;
-//   }
-
-//   texts[i] = nextParagraphs.join('\n');
-// }
-
-// console.log(texts);
-
-// const API_URL = 'https://example.com/api';
-// const payload = {
-//   texts: texts
-// };
-
-// fetch(API_URL, {
-//   method: 'POST',
-//   body: JSON.stringify(payload),
-//   headers: {
-//     'Content-Type': 'application/json'
-//   }
-// })
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.error(error));}
-
-
-// //////////////////////////////////////////////////////////////////////////
 
 // this is for every text content after every p tag contain classname heading / 
 
@@ -69,25 +21,6 @@ for (let i = 0; i < headings.length; i++) {
   
 }
 
-console.log(texts);
-console.log(JSON.stringify(data));
-
-fetch('https://example.com/api/endpoint', {
-  // insert You API here , in line num ber 88
-  method: 'POST',
-  body: JSON.stringify(data),
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
-.then(response => {
-  console.log(response);
-  
-})
-.catch(error => {
-  console.log(error);
-  
-});
 
 
 

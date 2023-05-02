@@ -28,6 +28,7 @@
 
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
+    "identity",
     "storage",
     "tabs",
     "scripting",

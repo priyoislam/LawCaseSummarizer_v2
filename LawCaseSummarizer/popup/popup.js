@@ -1,10 +1,12 @@
 
 
 const loginWithEmailBtn = document.getElementById('login-button');
-const loginWithGoogleBtn = document.getElementById('login-with-google-btn');
+const loginWithGoogleBtn = document.getElementById('login-with-google');
 const signupBtn = document.getElementById('signup-button');
 const chatGptLink = document.getElementById('chatGptLink');
 const configLink = document.getElementById('configLink');
+
+
 
 chrome.storage.local.get('ChatGPTFreeToken', function (result) {
   if (!result.ChatGPTFreeToken) {
@@ -37,11 +39,11 @@ loginForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from submitting
 
   // Get the email and password input values
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+  const Lemail = document.getElementById("login-email").value;
+  const Lpassword = document.getElementById("login-password").value;
 
   // Do something with the email and password values, such as sending them to a server for authentication
-  console.log(`Logging in with email: ${email} and password: ${password}`);
+  console.log(`Logging in with email: ${Lemail} and password: ${Lpassword}`);
 
 
 
@@ -79,10 +81,14 @@ async function checkPasswords() {
   // send message to background.js with email and FinalPassword
   chrome.runtime.sendMessage({type: 'my-message', data: [email, FinalPassword]}, function(response) {
     console.log('Response received:', response);
+    if (response) {
+      console.log('done');
+      
+    }
   });
 }
 
-checkPasswords();
+   checkPasswords();
 
 
   ///////////////////
@@ -110,6 +116,50 @@ toggleSignupBtn.addEventListener("click", () => {
     signupForm.style.display = "block";
     toggleSignupBtn.textContent = "Already have an account? Login here."; // Change the button text to indicate that the user can go back to the login page
   }
+});
+
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.type === "signup-success") {
+    setTimeout(() => {
+      toggleSignupBtn.textContent = "You have successfully signed up";
+      toggleSignupBtn.style.color='green';
+      const tick = document.createTextNode('\u2713'); 
+      toggleSignupBtn.appendChild(tick);
+    }, 1000);
+   
+    
+    
+  }
+  clearTimeout(2000)
+});
+
+// login with eamil and pass
+loginWithEmailBtn.addEventListener("click", () => {
+  const Lemail = document.getElementById("login-email").value;
+  const Lpassword = document.getElementById("login-password").value;
+  const payload = {
+    email: Lemail,
+    password: Lpassword,
+  };
+  chrome.runtime.sendMessage(payload, (response) => {
+    console.log("Response received email and pass for login :", response);
+  });
+});
+
+
+
+// login with eamil and pass
+
+
+// login with google 
+
+// send a message to background.js when a button is clicked
+loginWithGoogleBtn.addEventListener("click", () => {
+  chrome.runtime.sendMessage({ greeting: "loginWithGoogleBtn" }, (response) => {
+    if (response) {
+      console.log(response);
+    }
+  });
 });
 
 
