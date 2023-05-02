@@ -1,5 +1,12 @@
+
+
+const loginWithEmailBtn = document.getElementById('login-button');
+const loginWithGoogleBtn = document.getElementById('login-with-google');
+const signupBtn = document.getElementById('signup-button');
 const chatGptLink = document.getElementById('chatGptLink');
 const configLink = document.getElementById('configLink');
+
+
 
 chrome.storage.local.get('ChatGPTFreeToken', function (result) {
   if (!result.ChatGPTFreeToken) {
@@ -32,11 +39,15 @@ loginForm.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from submitting
 
   // Get the email and password input values
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+  const Lemail = document.getElementById("login-email").value;
+  const Lpassword = document.getElementById("login-password").value;
 
   // Do something with the email and password values, such as sending them to a server for authentication
-  console.log(`Logging in with email: ${email} and password: ${password}`);
+  console.log(`Logging in with email: ${Lemail} and password: ${Lpassword}`);
+
+
+
+
 });
 
 // Handle form submission for signup form
@@ -48,7 +59,40 @@ signupForm.addEventListener("submit", (event) => {
   const password = document.getElementById("signup-password").value;
   const confirmPassword = document.getElementById("confirm-password").value;
 
+
   // Do something with the email, password, and confirm password values, such as sending them to a server for creating a new user account
+
+////////////////////
+
+async function checkPasswords() {
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+  let FinalPassword;
+  
+  if (password === confirmPassword) {
+    FinalPassword = password;
+  } else {
+    console.log("Passwords do not match");
+    // or show an error message to the user
+    return; // exit the function early if passwords do not match
+  }
+  
+  // send message to background.js with email and FinalPassword
+  chrome.runtime.sendMessage({type: 'my-message', data: [email, FinalPassword]}, function(response) {
+    console.log('Response received:', response);
+    if (response) {
+      console.log('done');
+      
+    }
+  });
+}
+
+   checkPasswords();
+
+
+  ///////////////////
+
   console.log(`Signing up with email: ${email} and password: ${password}`);
 
   // Clear the input fields
@@ -74,27 +118,57 @@ toggleSignupBtn.addEventListener("click", () => {
   }
 });
 
-
-// Handle back button click to go back to login form
-backToLoginBtn.addEventListener("click", () => {
-  loginForm.style.display = "block";
-  signupForm.style.display = "none";
-});
-
-
-
-// To check if the user is logged in
-
-chrome.storage.local.get('user', result => {
-  const user = result.user;
-  if (user) {
-    // user is logged in
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  if (message.type === "signup-success") {
+    setTimeout(() => {
+      toggleSignupBtn.textContent = "You have successfully signed up";
+      toggleSignupBtn.style.color='green';
+      const tick = document.createTextNode('\u2713'); 
+      toggleSignupBtn.appendChild(tick);
+    }, 1000);
    
     
-  } else {
-    // user is not logged in
+    
   }
+  clearTimeout(2000)
 });
+
+// login with eamil and pass
+loginWithEmailBtn.addEventListener("click", () => {
+  const Lemail = document.getElementById("login-email").value;
+  const Lpassword = document.getElementById("login-password").value;
+  const payload = {
+    email: Lemail,
+    password: Lpassword,
+  };
+  chrome.runtime.sendMessage(payload, (response) => {
+    console.log("Response received email and pass for login :", response);
+  });
+});
+
+
+
+// login with eamil and pass
+
+
+// login with google 
+
+// send a message to background.js when a button is clicked
+loginWithGoogleBtn.addEventListener("click", () => {
+  chrome.runtime.sendMessage({ greeting: "loginWithGoogleBtn" }, (response) => {
+    if (response) {
+      console.log(response);
+    }
+  });
+});
+
+
+
+
+
+
+
+
 
 
 

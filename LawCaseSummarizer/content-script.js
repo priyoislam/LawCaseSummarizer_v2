@@ -1,28 +1,10 @@
-importScripts('firebase-app.js');
-importScripts('firebase-auth.js');
 
-// Your Firebase authentication code goes here
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAy1cQNmS7ODhE1RpEDY-fMQsCJlff2QOQ",
-  authDomain: "kennetp-28dbc.firebaseapp.com",
-  projectId: "kennetp-28dbc",
-  storageBucket: "kennetp-28dbc.appspot.com",
-  messagingSenderId: "470579643823",
-  appId: "1:470579643823:web:f16b4a343b2b2ee2039b5a"
-};
-
- // Initialize Firebase
- const app = initializeApp(firebaseConfig);
-
-
-
-// //////////////////////////////////////////////////////////////////////////
 
 // this is for every text content after every p tag contain classname heading / 
 
 const headings = document.querySelectorAll('p.heading');
 const texts = [];
+const data ={};
 
 for (let i = 0; i < headings.length; i++) {
   const heading = headings[i];
@@ -35,9 +17,11 @@ for (let i = 0; i < headings.length; i++) {
   }
 
   texts[i] = nextParagraphs.join('\n');
+  data[heading.textContent] = nextParagraphs.join('\n');
+  
 }
 
-console.log(texts);
+
 
 
 

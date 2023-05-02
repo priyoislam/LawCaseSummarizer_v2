@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "HKLII Summarizer",
+  "name": "HKLII Summarizer x",
   "description": "Summarize Law Cases in the website : https://hklii.hk",
   "version": "1.0",
   "action": {
@@ -13,9 +13,10 @@
     "128": "images/icon-128.png"
   },
   "background": {
-    "service_worker": "background.js",
+    "service_worker":"background.js" ,
     "type": "module"
   },
+  
   "options_page": "options/options.html",
   "content_scripts": [
     {
@@ -23,6 +24,8 @@
       "js": ["content-script.js"]
     }
   ],
+
+
   "host_permissions": ["https://chat.openai.com/*"],
   "permissions": [
     "identity",
@@ -31,14 +34,11 @@
     "scripting",
     "activeTab",
     "cookies",
-    "webRequest",
-    "https://www.googleapis.com/auth/userinfo.email",
-    "https://www.googleapis.com/auth/firebase.database"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["firebase-app.js", "firebase-auth.js"],
-      "matches": ["<all_urls>"]
-    }
+    "webRequest"
+    
   ]
-}
+  
+  
+  }
+  
+
