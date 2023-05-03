@@ -88,6 +88,17 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
         console.log(uid);
         console.log("==================================== xxxx");
 
+        chrome.storage.local.set({ myKey:  `${idToken}` })
+        .then(() => {
+          console.log("Value is set to myKey");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+        
+        
+        
+
         var myHeaders = new Headers();
         myHeaders.append(
           "Authorization",
@@ -129,13 +140,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     const password= message.password
     // Do some processing with the email and password here
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth,email, password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log('ssssssssssssssssssssssssssssss');
-        
-        
+        console.log('successfully Loged in');
         
         // ...
       })
